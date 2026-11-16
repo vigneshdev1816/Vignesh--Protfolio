@@ -218,7 +218,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .navbar-inner {
     flex-wrap: wrap;
   }
@@ -1241,11 +1241,6 @@ textarea.form-input {
 /* ======== RESPONSIVE NAV & HERO ======== */
 
 @media (max-width: 1023px) {
-  .navbar-links,
-  .navbar-toggle {
-    display: none !important;
-  }
-
   .hero-image-wrapper {
     order: -1;
   }
