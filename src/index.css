@@ -1238,20 +1238,11 @@ textarea.form-input {
   background-clip: text;
 }
 
-/* ======== RESPONSIVE VISIBILITY ======== */
+/* ======== RESPONSIVE NAV & HERO ======== */
 
 @media (max-width: 1023px) {
-  #about,
-  #skills,
-  #projects,
-  #contact {
-    display: none !important;
-  }
-
-  .navbar-links a[href="#about"],
-  .navbar-links a[href="#skills"],
-  .navbar-links a[href="#projects"],
-  .navbar-links a[href="#contact"] {
+  .navbar-links,
+  .navbar-toggle {
     display: none !important;
   }
 
