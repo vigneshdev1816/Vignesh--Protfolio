@@ -105,15 +105,7 @@ export default function About() {
           </h2>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "64px",
-            alignItems: "start",
-          }}
-          className="lg-grid"
-        >
+        <div className="lg-grid about-grid">
           <div className={`fade-left${visible ? " visible" : ""}`}>
             <div style={{ position: "relative" }}>
               <div
@@ -218,9 +210,17 @@ export default function About() {
       </div>
 
       <style>{`
-        .lg-grid { grid-template-columns: 1fr; }
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 32px;
+          align-items: start;
+        }
+        @media (min-width: 768px) {
+          .about-grid { gap: 48px; }
+        }
         @media (min-width: 1024px) {
-          .lg-grid { grid-template-columns: 1fr 1fr; }
+          .about-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
         }
         .education-list { position: relative; }
         .fade-left, .fade-right { transition: all 0.7s ease; opacity: 0; }
