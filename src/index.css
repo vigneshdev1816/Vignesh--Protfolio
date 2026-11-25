@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -119,13 +120,14 @@ body {
   right: 0;
   z-index: 50;
   padding: 16px 0;
-  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar.scrolled {
   background: rgba(3, 0, 20, 0.9);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 .navbar-inner {
@@ -252,6 +254,7 @@ body {
 
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,7 +288,7 @@ body {
   grid-template-columns: 1fr;
   gap: 48px;
   align-items: center;
-  transition: all 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 @media (min-width: 1024px) {
@@ -964,6 +967,11 @@ body {
   white-space: nowrap;
 }
 
+.terminal-body-wrap {
+  position: relative;
+  min-height: 300px;
+}
+
 .terminal-body {
   padding: 24px;
   font-family: 'Courier New', monospace;
@@ -971,8 +979,22 @@ body {
   line-height: 1.7;
   color: #6ee7b7;
   overflow-x: auto;
-  min-height: 300px;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* Full text reserves the box height up-front so typing never resizes the
+   section (prevents the responsive layout from shifting/shaking). */
+.terminal-body-sizer {
+  visibility: hidden;
+}
+
+.terminal-body-typed {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
 .terminal-cursor {

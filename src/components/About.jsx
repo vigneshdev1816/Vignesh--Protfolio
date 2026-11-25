@@ -126,12 +126,17 @@ export default function About() {
                     vignesh — bash — 80×24
                   </span>
                 </div>
-                <pre className="terminal-body">
-                  {displayedText}
-                  <span
-                    className={`terminal-cursor${typingDone ? " blink" : ""}`}
-                  />
-                </pre>
+                <div className="terminal-body-wrap">
+                  <pre className="terminal-body terminal-body-sizer" aria-hidden="true">
+                    {typeText}
+                  </pre>
+                  <pre className="terminal-body terminal-body-typed">
+                    {displayedText}
+                    <span
+                      className={`terminal-cursor${typingDone ? " blink" : ""}`}
+                    />
+                  </pre>
+                </div>
               </div>
             </div>
           </div>
@@ -149,6 +154,7 @@ export default function About() {
                 style={{
                   width: 40,
                   height: 40,
+                  minWidth: 40,
                   borderRadius: 8,
                   background: "rgba(16, 185, 129, 0.2)",
                   border: "1px solid rgba(52, 211, 153, 0.3)",
@@ -164,10 +170,11 @@ export default function About() {
               </div>
               <h3
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "clamp(1.1rem, 5vw, 1.5rem)",
                   fontWeight: 700,
                   color: "white",
                   fontFamily: "'Courier New', monospace",
+                  overflowWrap: "anywhere",
                 }}
               >
                 $ education --list
